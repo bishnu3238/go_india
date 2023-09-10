@@ -1,0 +1,9 @@
+export 'email_validation.dart';
+export 'password_validation.dart';
+export 'phone_number_validation.dart';
+export 'referral_code_validator.dart';
+export 'user_name_validation.dart';
+export 'otp_validation.dart';
+export 'city_validation.dart';
+export 'full_name_validation.dart';
+export 'dob_validator.dart';

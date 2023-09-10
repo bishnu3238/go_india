@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "440073782621",
+    "project_id": "go-india-d3676",
+    "storage_bucket": "go-india-d3676.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440073782621:android:2d4eb7f244af61bc7a94b4",
+        "android_client_info": {
+          "package_name": "com.goindia.go_india"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcutrcE504JpgtCoLnNxPd3ve7N6yf0KU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,10 @@
+export 'driver.dart';
+export 'driver_details.dart';
+export 'sub_class/aadhaar_info.dart';
+export 'sub_class/bank_info.dart';
+export 'sub_class/pan_info.dart';
+export 'sub_class/identity_detail_info.dart';
+export 'driver_vehicle_info.dart';
+export 'sub_class/fitness_info.dart';
+export 'sub_class/driver_license_info.dart';
+export 'sub_class/pollution_info.dart';
