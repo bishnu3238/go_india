@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class OtpRoute {
   static GoRoute page() => GoRoute(
         path: Screen.otp.path,
-        name: Screen.otp.toName,
+        name: Screen.otp.cName,
         builder: (ctx, state) =>
             OtpPage(params: state.extra! as OtpPageInitialParams),
       );

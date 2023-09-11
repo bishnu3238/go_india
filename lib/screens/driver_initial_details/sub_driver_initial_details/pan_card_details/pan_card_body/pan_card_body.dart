@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_india/package/package/package.dart';
 import 'package:go_india/screens/common/two_t_column.dart';
 import 'package:go_india/utility/utility/utility.dart';
-import '../../../../../routes/route_path.dart';
-import '../../../export.dart';
+ import '../../../export.dart';
 
 class PanCardBody extends StatelessWidget {
   const PanCardBody({super.key});
@@ -20,7 +19,7 @@ class PanCardBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 15),
-              AutoSizeText(Screen.panCard.toTitle,
+              AutoSizeText('Pan Card Details',
                   style: gideonRoman(weight: fw7, size: 20)),
               const SizedBox(height: 8),
               const AutoSizeText(panCardTextOne),

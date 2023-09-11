@@ -15,7 +15,7 @@ SimpleAppBar simpleAppBar(BuildContext context) {
       iconColor: theme.shadowColor,
     ),
     centerTitle: false,
-    label: Screen.driverLicenseNo.toTitle,
+    label: Screen.driverLicenseNo.name,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

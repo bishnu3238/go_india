@@ -7,7 +7,7 @@ String editProfileName = 'edit-profile-name';
 class UserProfileRoute {
   static GoRoute page() => GoRoute(
         path: Screen.userProfile.path,
-        name: Screen.userProfile.toName,
+        name: Screen.userProfile.cName,
         builder: (ctx, state) => const UserProfile(),
         routes: [
           GoRoute(

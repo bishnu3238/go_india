@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
- import '../package/package.dart';
+import '../package/package.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? bgColor;
@@ -12,7 +12,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double elevation;
   final VoidCallback? onLeadingTap;
   final TextStyle? style;
- final bool showBackIcon;
+  final bool showBackIcon;
   final double tabBarHeight;
   final List<Widget>? buttons;
   final PreferredSizeWidget? tabBar;
@@ -25,7 +25,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.centerTitle = true,
     this.elevation = 0,
     this.leading,
-    this.showBackIcon = false,
+    this.showBackIcon = true,
     this.style,
     this.buttons,
     this.onLeadingTap,
@@ -45,6 +45,9 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: elevation,
       centerTitle: centerTitle,
       backgroundColor: bgColor,
+      iconTheme: theme.iconTheme.copyWith(
+        color: theme.colorScheme.onPrimaryContainer,
+      ),
       automaticallyImplyLeading: showBackIcon,
       title: title ?? Text(label, style: style),
       // backgroundColor: Theme.of(context).colorScheme.onBackground,

@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:go_india/screens/driver_initial_details/export.dart';
-import 'package:go_router/go_router.dart';
 
 import '../../../../package/package/package.dart';
-import '../../../../routes/route_path.dart';
-import '../../../../utility/utility/utility.dart';
+ import '../../../../utility/utility/utility.dart';
 
 class DrivingLicense extends StatelessWidget {
   const DrivingLicense({super.key});
@@ -27,14 +25,9 @@ class DrivingLicense extends StatelessWidget {
 SimpleAppBar _simpleAppBar(BuildContext context) {
   var theme = Theme.of(context);
   return SimpleAppBar(
-    bgColor: theme.colorScheme.background,
-    leading: FavIcon(
-      icon: Icons.arrow_back,
-      onTap: () => context.pop(),
-      iconColor: theme.shadowColor,
-    ),
     centerTitle: false,
-    label: Screen.driverLicenseNo.toTitle,
+    label: 'Driving License Details',
+    bgColor: theme.colorScheme.background,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

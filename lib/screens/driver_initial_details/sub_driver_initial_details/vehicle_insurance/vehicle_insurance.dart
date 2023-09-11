@@ -30,14 +30,9 @@ class VehicleInsurance extends StatelessWidget {
 SimpleAppBar _simpleAppBar(BuildContext context) {
   var theme = Theme.of(context);
   return SimpleAppBar(
-    bgColor: theme.cardColor,
-    leading: FavIcon(
-      icon: Icons.arrow_back,
-      onTap: () => context.pop(),
-      iconColor: theme.shadowColor,
-    ),
     centerTitle: false,
-    label: Screen.vehicleInsurance.toTitle,
+    label: 'Vehicle Insurance Details',
+    bgColor: theme.colorScheme.background,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

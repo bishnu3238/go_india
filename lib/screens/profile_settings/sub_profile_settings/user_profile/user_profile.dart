@@ -32,7 +32,7 @@ SimpleAppBar _simpleAppBar(BuildContext context) {
       iconColor: theme.shadowColor,
     ),
     centerTitle: false,
-    label: Screen.userProfile.toTitle,
+    label: 'Profile',
     buttons: [
       EditButton(
         icon: FontAwesomeIcons.penToSquare,

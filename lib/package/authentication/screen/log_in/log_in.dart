@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
 class LoginRoute {
   static GoRoute page() => GoRoute(
         path: Screen.login.path,
-        name: Screen.login.toName,
+        name: Screen.login.cName,
         builder: (ctx, state) => const LoginPage(),
       );
 }

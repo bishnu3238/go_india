@@ -32,13 +32,16 @@ final class ApplicationState extends Equatable {
         );
 
   Map<String, dynamic> toMap() => {
-        'status': status,
-        'screen': screen,
+        'status': status.name,
+        'screen': screen.name,
       };
 
   factory ApplicationState.fromJson(json) => ApplicationState._(
-        status: json['status'],
-        screen: json['screen'],
+        status: (json['status'] as String? ?? AuthStatus.unknown.name)
+                .stringToAuthStatus ??
+            AuthStatus.unknown,
+        screen:
+            (json['screen'] as String? ?? Screen.splash.name).stringToScreen,
       );
 
   ApplicationState copyWith({

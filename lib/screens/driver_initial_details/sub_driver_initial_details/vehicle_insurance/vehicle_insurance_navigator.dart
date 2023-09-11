@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class VehicleInsuranceRoute {
   static GoRoute page() => GoRoute(
     path: Screen.vehicleInsurance.path,
-    name: Screen.vehicleInsurance.toName,
+    name: Screen.vehicleInsurance.cName,
     builder: (ctx, state) => const VehicleInsurance(),
   );
 }

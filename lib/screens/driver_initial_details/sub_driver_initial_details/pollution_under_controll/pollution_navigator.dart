@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class PollutionRoute {
   static GoRoute page() => GoRoute(
     path: Screen.pollutionUnderControl.path,
-    name: Screen.pollutionUnderControl.toName,
+    name: Screen.pollutionUnderControl.cName,
     builder: (ctx, state) => const Pollution(),
   );
 }

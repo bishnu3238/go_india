@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class IdentityDetailsRoute {
   static GoRoute page() => GoRoute(
     path: Screen.identity.path,
-    name: Screen.identity.toName,
+    name: Screen.identity.cName,
     builder: (ctx, state) => const IdentityDetails(),
   );
 }

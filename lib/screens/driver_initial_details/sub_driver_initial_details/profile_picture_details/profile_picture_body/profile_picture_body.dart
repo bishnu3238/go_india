@@ -4,8 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_india/screens/driver_initial_details/export.dart';
 import 'package:go_india/utility/utility/utility.dart';
 import 'package:go_india/package/package/package.dart';
-import '../../../../../domain/store/store.dart';
-import '../../../../common/common.dart';
+ import '../../../../common/common.dart';
 
 class ProfilePictureBody extends StatelessWidget {
   const ProfilePictureBody({super.key});
@@ -48,13 +47,11 @@ class _ProfilePhoto extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfilePictureCubit, ProfilePictureState>(
         builder: (context, state) {
+          state.driver.image.log();
       return ContainerImageShow(
-        image: !getIt<DriverStore>().state.image.contains(profilePictureImage)
-            ? getIt<DriverStore>().state.image
-            : profilePictureImage,
-        imgType: !getIt<DriverStore>().state.image.contains(profilePictureImage)
-            ? ImgType.file
-            : ImgType.local,
+        image:state.driver.image,
+
+        imgType:  state.driver.imgType,
       );
     });
   }

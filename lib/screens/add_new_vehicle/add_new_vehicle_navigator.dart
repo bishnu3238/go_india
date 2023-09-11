@@ -6,7 +6,7 @@ import '../../routes/route_path.dart';
 class AddNewVehicleRoute {
   static GoRoute page() => GoRoute(
         path: Screen.addVehicle.path,
-        name: Screen.addVehicle.toName,
+        name: Screen.addVehicle.cName,
         builder: (ctx, state) => const AddNewVehicle(),
       );
 }

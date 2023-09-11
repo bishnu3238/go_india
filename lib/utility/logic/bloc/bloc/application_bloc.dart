@@ -41,7 +41,7 @@ class ApplicationBloc extends HydratedBloc<ApplicationEvent, ApplicationState> {
 
   void _onUserChanged(AppUserChanged event, Emitter<ApplicationState> emit) {
     emit(
-      event.driver.isNotEmpty || event.driver.id != '0'
+      event.driver.authStatus == AuthStatus.authenticated
           ? ApplicationState.authenticated(event.driver)
           : const ApplicationState.unauthenticated(),
     );

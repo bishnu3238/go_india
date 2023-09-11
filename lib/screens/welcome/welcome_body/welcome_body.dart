@@ -27,7 +27,7 @@ class WelcomeBody extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             InkWell(
-              onTap: () => context.push(addVehiclePath),
+              onTap: () => context.go(addVehiclePath),
               child: HeadLine(
                 headline: 'Start Application',
                 style: gideonRoman(

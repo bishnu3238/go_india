@@ -1,28 +1,32 @@
 import 'package:flutter/services.dart';
 import 'package:formz/formz.dart';
- import 'package:image_picker/image_picker.dart';
-
+import 'package:image_picker/image_picker.dart';
+import '../../../../domain/entity/entity.dart';
 
 class ProfilePictureState {
   ProfilePictureState({
+    required this.driver,
     this.profileImage = const [],
     this.status = FormzSubmissionStatus.initial,
     this.isValid = false,
     this.errorMessage = '',
   });
 
+  final Driver driver;
   final List<XFile?> profileImage;
   final FormzSubmissionStatus status;
   final bool isValid;
   final String? errorMessage;
 
   ProfilePictureState copyWith({
+    Driver? driver,
     final List<XFile?>? profileImage,
     final FormzSubmissionStatus? status,
     final bool? isValid,
     final String? errorMessage,
   }) =>
       ProfilePictureState(
+          driver: driver ?? this.driver,
           profileImage: profileImage ?? this.profileImage,
           status: status ?? this.status,
           isValid: isValid ?? this.isValid,

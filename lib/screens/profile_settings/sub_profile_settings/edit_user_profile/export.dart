@@ -4,4 +4,3 @@ export 'edit_user_profile_state.dart';
 export 'edit_user_profile_navigator.dart';
 export 'edit_user_profile_body/edit_user_profile_body.dart';
 export 'edit_user_profile_body/edit_user_profile_button.dart';
-export 'edit_user_profile_body/edit_user_profile_app_bar.dart';

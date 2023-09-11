@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class SetPreferencesRoute {
   static GoRoute page() => GoRoute(
     path: Screen.setPreferences.path,
-    name: Screen.setPreferences.toName,
+    name: Screen.setPreferences.cName,
     builder: (ctx, state) => const SetPreferences(),
   );
 }

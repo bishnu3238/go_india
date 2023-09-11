@@ -9,7 +9,7 @@ class HomeNavigator {}
 mixin HomeRoute {
   static GoRoute page() => GoRoute(
         path: Screen.home.path,
-        name: Screen.home.toName,
+        name: Screen.home.cName,
         builder: (ctx, state) => const Home(),
       );
 

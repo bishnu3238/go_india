@@ -5,7 +5,7 @@ import 'export.dart';
 class DrivingLicenseRoute {
   static GoRoute page() => GoRoute(
         path: Screen.driverLicenseNo.path,
-        name: Screen.driverLicenseNo.toName,
+        name: Screen.driverLicenseNo.cName,
         builder: (ctx, state) => const DrivingLicense(),
       );
 }

@@ -6,7 +6,7 @@ import 'export.dart';
 class WaitForVerificationRoute {
   static GoRoute page() => GoRoute(
           path: Screen.waitForVerification.path,
-          name: Screen.waitForVerification.toName,
+          name: Screen.waitForVerification.cName,
           builder: (ctx, state) => const WaitForVerification(),
           routes: [
             GoRoute(

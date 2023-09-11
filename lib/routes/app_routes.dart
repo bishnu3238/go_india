@@ -33,6 +33,8 @@ class AppRouter {
     debugLogDiagnostics: true,
     routerNeglect: true,
     restorationScopeId: 'router',
+    // urlPathStrategy: UrlPathStrategy.path,
+
     routes: <GoRoute>[
       SplashRoute.page(),
       OnBoardingRoute.page(),
@@ -43,18 +45,6 @@ class AppRouter {
       WelcomeRoute.page(),
       AddNewVehicleRoute.page(),
       DriverInitialDetailsRoute.page(),
-      IdentityDetailsRoute.page(),
-      BankAccountDetailsRoute.page(),
-      AadhaarCardDetailsRoute.page(),
-      ProfilePictureRoute.page(),
-      DrivingLicenseRoute.page(),
-      RcDetailsRoute.page(),
-      PollutionRoute.page(),
-      VehicleInsuranceRoute.page(),
-      PanCardRoute.page(),
-      VehiclePermitRoute.page(),
-      FitnessCertificateRoute.page(),
-      VehicleAuditRoute.page(),
       UserProfileRoute.page(),
       EditUserProfileRoute.page(),
       WaitForVerificationRoute.page(),
@@ -80,18 +70,18 @@ class AppRouter {
       store.log();
       vStore.log();
       // path
-      var otp = Screen.otp.toName;
-      var home = Screen.home.toName;
-      var login = Screen.login.toName;
-      var splash = Screen.splash.toName;
-      var signUp = Screen.signUp.toName;
-      var welcome = Screen.welcome.toName;
-      var onBoarding = Screen.onBoarding.toName;
+      var otp = Screen.otp.cName;
+      var home = Screen.home.cName;
+      var login = Screen.login.cName;
+      var splash = Screen.splash.cName;
+      var signUp = Screen.signUp.cName;
+      var welcome = Screen.welcome.cName;
+      var onBoarding = Screen.onBoarding.cName;
       var onBoardingPath = Screen.onBoarding.path;
-      var addNewVehicle = Screen.addVehicle.toName;
-      var waitingDriver = Screen.waitForVerification.toName;
-      var driverDetails = Screen.driverInitialDetails.toName;
-      var welcomeDriver = Screen.welcomeDriverDetails.toName;
+      var addNewVehicle = Screen.addVehicle.cName;
+      var waitingDriver = Screen.waitForVerification.cName;
+      var driverDetails = Screen.driverInitialDetails.cName;
+      var welcomeDriver = Screen.welcomeDriverDetails.cName;
 
       'vStore.status: ${store.status} ${vStore.status}'.log();
       // location

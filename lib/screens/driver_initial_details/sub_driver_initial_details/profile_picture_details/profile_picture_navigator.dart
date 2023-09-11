@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class ProfilePictureRoute {
   static GoRoute page() => GoRoute(
     path: Screen.profilePicture.path,
-    name: Screen.profilePicture.toName,
+    name: Screen.profilePicture.cName,
     builder: (ctx, state) => const ProfilePicture(),
   );
 }

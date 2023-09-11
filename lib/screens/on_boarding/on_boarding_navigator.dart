@@ -6,7 +6,7 @@ import 'on_boarding.dart';
 class OnBoardingRoute {
   static GoRoute page() =>    GoRoute(
     path: Screen.onBoarding.path,
-    name: Screen.onBoarding.toName,
+    name: Screen.onBoarding.cName,
     builder: (ctx, state) => const Onboarding(),
   );
 }

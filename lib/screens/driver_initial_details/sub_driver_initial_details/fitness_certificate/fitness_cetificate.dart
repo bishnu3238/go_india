@@ -30,14 +30,10 @@ class FitnessCertificate extends StatelessWidget {
 SimpleAppBar _simpleAppBar(BuildContext context) {
   var theme = Theme.of(context);
   return SimpleAppBar(
-    bgColor: theme.cardColor,
-    leading: FavIcon(
-      icon: Icons.arrow_back,
-      onTap: () => context.pop(),
-      iconColor: theme.shadowColor,
-    ),
+    bgColor: theme.colorScheme.background,
+
     centerTitle: false,
-    label: Screen.fitnessCertificate.toTitle,
+    label: 'Fitness Certificate Details',
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class VehicleAuditRoute {
   static GoRoute page() => GoRoute(
     path: Screen.vehicleAudit.path,
-    name: Screen.vehicleAudit.toName,
+    name: Screen.vehicleAudit.cName,
     builder: (ctx, state) => const VehicleAudit(),
   );
 }

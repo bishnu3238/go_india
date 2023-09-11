@@ -12,7 +12,7 @@ import '../../export.dart';
 class ProfilePictureCubit extends Cubit<ProfilePictureState> {
   ProfilePictureCubit(
       this.notifier, this.driverStore, this.driverDetailsRepository)
-      : super(ProfilePictureState());
+      : super(ProfilePictureState(driver: driverStore.state));
 
   final Notifier notifier;
   final DriverStore driverStore;

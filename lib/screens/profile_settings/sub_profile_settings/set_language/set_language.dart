@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'export.dart';
-import 'package:go_india/routes/route_path.dart';
 import 'package:go_india/package/package/package.dart';
 import 'package:go_india/utility/utility/utility.dart';
 
@@ -31,7 +30,7 @@ SimpleAppBar _simpleAppBar(BuildContext context) {
       iconColor: theme.shadowColor,
     ),
     centerTitle: false,
-    label: Screen.aadharCard.toTitle,
+    label: 'Language',
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

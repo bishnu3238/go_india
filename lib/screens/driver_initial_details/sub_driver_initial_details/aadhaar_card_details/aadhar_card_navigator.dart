@@ -5,7 +5,7 @@ import 'export.dart';
 class AadhaarCardDetailsRoute {
   static GoRoute page() => GoRoute(
         path: Screen.aadharCard.path,
-        name: Screen.aadharCard.toName,
+        name: Screen.aadharCard.cName,
         builder: (ctx, state) => const AadhaarCardDetails(),
       );
 }

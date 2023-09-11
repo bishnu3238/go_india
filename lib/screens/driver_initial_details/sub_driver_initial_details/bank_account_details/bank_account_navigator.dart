@@ -6,7 +6,7 @@ import 'export.dart';
 class BankAccountDetailsRoute {
   static GoRoute page() => GoRoute(
     path: Screen.bankAccountDetails.path,
-    name: Screen.bankAccountDetails.toName,
+    name: Screen.bankAccountDetails.cName,
     builder: (ctx, state) => const BankAccountDetails(),
   );
 }

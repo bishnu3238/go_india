@@ -5,7 +5,7 @@ import 'export.dart';
 class VehiclePermitRoute {
   static GoRoute page() => GoRoute(
         path: Screen.vehiclePermit.path,
-        name: Screen.vehiclePermit.toName,
+        name: Screen.vehiclePermit.cName,
         builder: (ctx, state) => const VehiclePermit(),
       );
 }

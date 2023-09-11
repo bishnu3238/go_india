@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class RcDetailsRoute {
   static GoRoute page() => GoRoute(
         path: Screen.rcCertificate.path,
-        name: Screen.rcCertificate.toName,
+        name: Screen.rcCertificate.cName,
         builder: (ctx, state) => const RcDetails(),
       );
 }

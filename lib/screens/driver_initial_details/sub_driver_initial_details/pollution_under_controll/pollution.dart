@@ -12,12 +12,11 @@ class Pollution extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => PollutionCubit(getIt(),getIt(),getIt(),getIt()),
+      create: (create) => PollutionCubit(getIt(), getIt(), getIt(), getIt()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const PollutionBody(),
         persistentFooterButtons: const [PollutionButton()],
-
       ),
     );
   }
@@ -26,14 +25,9 @@ class Pollution extends StatelessWidget {
 SimpleAppBar _simpleAppBar(BuildContext context) {
   var theme = Theme.of(context);
   return SimpleAppBar(
-    bgColor: theme.cardColor,
-    leading: FavIcon(
-      icon: Icons.arrow_back,
-      onTap: () => context.pop(),
-      iconColor: theme.shadowColor,
-    ),
     centerTitle: false,
-    label: Screen.pollutionUnderControl.toTitle,
+    label: 'Pollution Under Control',
+    bgColor: theme.colorScheme.background,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

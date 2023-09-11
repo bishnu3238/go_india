@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class EditUserProfileRoute {
   static GoRoute page() => GoRoute(
     path: Screen.editProfile.path,
-    name: Screen.editProfile.toName,
+    name: Screen.editProfile.cName,
     builder: (ctx, state) => const EditUserProfile(),
   );
 }

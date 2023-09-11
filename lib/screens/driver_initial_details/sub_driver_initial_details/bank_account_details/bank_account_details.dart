@@ -24,12 +24,7 @@ class BankAccountDetails extends StatelessWidget {
 
   SimpleAppBar _simpleAppBar(BuildContext context, ThemeData theme) {
     return SimpleAppBar(
-      bgColor: theme.cardColor,
-      leading: FavIcon(
-        icon: Icons.arrow_back,
-        onTap: () => context.pop(),
-        iconColor: theme.shadowColor,
-      ),
+      bgColor: theme.colorScheme.background,
       buttons: const [
         FavTextIcon(icon: Icons.live_help_outlined, label: 'HELP', size: 20),
       ],

@@ -27,20 +27,19 @@ class DriverInitialDetailsBody extends StatelessWidget {
               children: [
                 _Header(cubit: cubit),
                 _IdentityDetails(theme: theme, state: state),
-                const SizedBox(height: 15),
-                _BAnkAccountDetails(theme: theme, state: state),
+                 const SizedBox(height: 15),
+                _BankAccountDetails(theme: theme, state: state),
                 _ProfilePicture(theme: theme, state: state),
                 _DrivingLicenseNo(theme: theme, state: state),
-                // _DrivingLicense(theme: theme, state: state),
                 _AadhaarCard(theme: theme, state: state),
                 _RCCertificate(theme: theme, state: state),
-                _PollutionUnderControll(theme: theme, state: state),
+                _PollutionUnderControl(theme: theme, state: state),
                 _VehicleInsurance(theme: theme, state: state),
                 _PanCard(theme: theme, state: state),
                 _VehiclePermit(theme: theme, state: state),
                 _FitnessCertificate(theme: theme, state: state),
                 _VehicleAudit(theme: theme, state: state),
-                const SizedBox(height: 30),
+                 SizedBox(height: 30),
               ],
             ),
           ),
@@ -100,10 +99,8 @@ class _IdentityDetails extends StatelessWidget {
         'Identity Details',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.identity.path),
-      // !state.isIdentityDetailsDone
-      //     ? context.push(Screen.identity.path)
-      //     : null,
+      onTap: () => Screen.identity.go(context),
+
       trailing: state.isIdentityDetailsDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -115,8 +112,8 @@ class _IdentityDetails extends StatelessWidget {
   }
 }
 
-class _BAnkAccountDetails extends StatelessWidget {
-  const _BAnkAccountDetails({
+class _BankAccountDetails extends StatelessWidget {
+  const _BankAccountDetails({
     required this.theme,
     required this.state,
   });
@@ -132,7 +129,7 @@ class _BAnkAccountDetails extends StatelessWidget {
         'Bank Account Details',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.bankAccountDetails.path),
+      onTap: () =>Screen.bankAccountDetails.go(context),
       trailing: state.isBankDetailsDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -160,7 +157,7 @@ class _DrivingLicenseNo extends StatelessWidget {
         'Driver License Number',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.driverLicenseNo.path),
+      onTap: () => Screen.driverLicenseNo.go(context),
       trailing: state.isDrivingLicenseDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -188,7 +185,7 @@ class _ProfilePicture extends StatelessWidget {
         'Profile Picture',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.profilePicture.path),
+      onTap: () => Screen.profilePicture.go(context),
       trailing: state.isProfileDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -216,7 +213,7 @@ class _VehicleAudit extends StatelessWidget {
         'Vehicle Audit',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.vehicleAudit.path),
+      onTap: () => Screen.vehicleAudit.go(context),
       trailing: state.isVehicleAuditDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -244,7 +241,7 @@ class _FitnessCertificate extends StatelessWidget {
         'Fitness Certificate',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.fitnessCertificate.path),
+      onTap: () => Screen.fitnessCertificate.go(context),
       trailing: state.isFitnessDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -272,7 +269,7 @@ class _VehiclePermit extends StatelessWidget {
         'Vehicle Permit',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.vehiclePermit.path),
+      onTap: () => Screen.vehiclePermit.go(context),
       trailing: state.isVehiclePermitDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -300,7 +297,7 @@ class _PanCard extends StatelessWidget {
         'PAN Card',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.panCard.path),
+      onTap: () => Screen.panCard.go(context),
       trailing: state.isPanDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
@@ -328,36 +325,8 @@ class _VehicleInsurance extends StatelessWidget {
         'Vehicle Insurance',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.vehicleInsurance.path),
+      onTap: () => Screen.vehicleInsurance.go(context),
       trailing: state.isVehicleInsuranceDone
-          ? IIcon(
-              icon: FontAwesomeIcons.solidCircleCheck,
-              color: theme.colorScheme.tertiary.withGreen(255),
-              size: 18,
-            )
-          : const IIcon(icon: FontAwesomeIcons.angleRight),
-    );
-  }
-}
-
-class _PollutionUnderControll extends StatelessWidget {
-  const _PollutionUnderControll({
-    required this.theme,
-    required this.state,
-  });
-  final DriverInitialDetailsState state;
-  final ThemeData theme;
-
-  @override
-  Widget build(BuildContext context) {
-    return CardHeadingListTile(
-      elevation: 0.5,
-      title: Text(
-        'Pollution Under Control',
-        style: gideonRoman(weight: fw6, size: 15),
-      ),
-      onTap: () => context.push(Screen.pollutionUnderControl.path),
-      trailing: state.isPollutionDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
               color: theme.colorScheme.tertiary.withGreen(255),
@@ -384,8 +353,36 @@ class _RCCertificate extends StatelessWidget {
         'Registration Certificate (RC) for Vehicle No',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.rcCertificate.path),
+      onTap: () =>Screen.rcCertificate.go(context),
       trailing: state.isRcDone
+          ? IIcon(
+              icon: FontAwesomeIcons.solidCircleCheck,
+              color: theme.colorScheme.tertiary.withGreen(255),
+              size: 18,
+            )
+          : const IIcon(icon: FontAwesomeIcons.angleRight),
+    );
+  }
+}
+
+class _PollutionUnderControl extends StatelessWidget {
+  const _PollutionUnderControl({
+    required this.theme,
+    required this.state,
+  });
+  final DriverInitialDetailsState state;
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    return CardHeadingListTile(
+      elevation: 0.5,
+      title: Text(
+        'Pollution Under Control',
+        style: gideonRoman(weight: fw6, size: 15),
+      ),
+      onTap: () => Screen.pollutionUnderControl.go(context),
+      trailing: state.isPollutionDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,
               color: theme.colorScheme.tertiary.withGreen(255),
@@ -412,7 +409,7 @@ class _AadhaarCard extends StatelessWidget {
         'Aadhaar Card',
         style: gideonRoman(weight: fw6, size: 15),
       ),
-      onTap: () => context.push(Screen.aadharCard.path),
+      onTap: () => Screen.aadharCard.go(context),
       trailing: state.isAadhaarDone
           ? IIcon(
               icon: FontAwesomeIcons.solidCircleCheck,

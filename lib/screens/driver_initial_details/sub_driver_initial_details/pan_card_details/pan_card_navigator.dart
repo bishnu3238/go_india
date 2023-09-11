@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class PanCardRoute {
   static GoRoute page() => GoRoute(
     path: Screen.panCard.path,
-    name: Screen.panCard.toName,
+    name: Screen.panCard.cName,
     builder: (ctx, state) => const PanCard(),
   );
 }

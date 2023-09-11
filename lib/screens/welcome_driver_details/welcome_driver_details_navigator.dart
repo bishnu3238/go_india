@@ -6,7 +6,7 @@ import 'export.dart';
 class WelcomeDriverRoute {
   static GoRoute page() => GoRoute(
         path: Screen.welcomeDriverDetails.path,
-        name: Screen.welcomeDriverDetails.toName,
+        name: Screen.welcomeDriverDetails.cName,
         builder: (ctx, state) => WelcomeDriverDetails(
           cubit: getIt<WelcomeDriverDetailsCubit>(),
         ),

@@ -11,7 +11,7 @@ String driverInitialDetailsPath = 'driver-initial-details';
 class WelcomeRoute {
   static GoRoute page() => GoRoute(
           path: Screen.welcome.path,
-          name: Screen.welcome.toName,
+          name: Screen.welcome.cName,
           builder: (ctx, state) => Welcome(
                 cubit: getIt<WelcomeCubit>(),
               ),

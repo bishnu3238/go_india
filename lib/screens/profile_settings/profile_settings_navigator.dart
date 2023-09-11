@@ -5,7 +5,7 @@ import '../../routes/route_path.dart';
 class ProfileSettingsRoute {
   static GoRoute page() => GoRoute(
     path: Screen.profileSettings.path,
-    name: Screen.profileSettings.toName,
+    name: Screen.profileSettings.cName,
     builder: (ctx, state) => const ProfileSettings(
      ),
   );

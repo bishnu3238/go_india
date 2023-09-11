@@ -2,8 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_india/package/package/package.dart';
-import 'package:go_india/routes/route_path.dart';
- import 'package:go_india/screens/driver_initial_details/export.dart';
+  import 'package:go_india/screens/driver_initial_details/export.dart';
 import 'package:go_india/utility/utility/utility.dart';
 
 class VehicleInsuranceBody extends StatelessWidget {
@@ -17,7 +16,7 @@ class VehicleInsuranceBody extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 10),
-            AutoSizeText(Screen.vehicleInsurance.toTitle),
+            const AutoSizeText('Vehicle Insurance Details'),
             const SizedBox(height: 15),
             const CardHeadingListTile(
               leading: Icon(Icons.check),

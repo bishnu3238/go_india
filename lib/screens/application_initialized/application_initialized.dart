@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
- import 'package:go_india/screens/driver_initial_details/export.dart';
+import 'package:go_india/screens/driver_initial_details/export.dart';
 import 'package:go_india/screens/profile_settings/export.dart';
 
 import '../../routes/app_routes.dart';
@@ -23,7 +23,12 @@ class _ApplicationInitializedState extends State<ApplicationInitialized> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (create) => DriverInitialDetailsCubit(getIt(),getIt(),getIt(),getIt(),),
+          create: (create) => DriverInitialDetailsCubit(
+            getIt(),
+            getIt(),
+            getIt(),
+            getIt(),
+          ),
           lazy: true,
         ),
         BlocProvider(
@@ -38,9 +43,7 @@ class _ApplicationInitializedState extends State<ApplicationInitialized> {
             title: appTitle,
             themeMode: state.themeMode,
             theme: state.light.toTheme,
-            // theme: state.light,
             darkTheme: state.dark.toTheme,
-            // darkTheme: state.dark,
             routerConfig: AppRouter.router,
             restorationScopeId: appName,
             debugShowCheckedModeBanner: false,

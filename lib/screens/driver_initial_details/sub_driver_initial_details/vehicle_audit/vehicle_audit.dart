@@ -21,7 +21,7 @@ class VehicleAudit extends StatelessWidget {
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const VehicleAuditBody(),
-        persistentFooterButtons: const[VehicleAuditButton()],
+        persistentFooterButtons: const [VehicleAuditButton()],
       ),
     );
   }
@@ -30,14 +30,9 @@ class VehicleAudit extends StatelessWidget {
 SimpleAppBar _simpleAppBar(BuildContext context) {
   var theme = Theme.of(context);
   return SimpleAppBar(
-    bgColor: theme.cardColor,
-    leading: FavIcon(
-      icon: Icons.arrow_back,
-      onTap: () => context.pop(),
-      iconColor: theme.shadowColor,
-    ),
     centerTitle: false,
-    label: Screen.vehicleAudit.toTitle,
+    label: 'Vehicle Audit Details',
+    bgColor: theme.colorScheme.background,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }

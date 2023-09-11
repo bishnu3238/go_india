@@ -2,8 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_india/package/package/package.dart';
-import 'package:go_india/routes/route_path.dart';
-import 'package:go_india/screens/common/two_t_column.dart';
+ import 'package:go_india/screens/common/two_t_column.dart';
 import 'package:go_india/screens/driver_initial_details/export.dart';
 import 'package:go_india/utility/utility/utility.dart';
 
@@ -12,37 +11,37 @@ class VehiclePermitBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return const SingleChildScrollView(
       child: Padding(
         padding: edgeInsets10,
         child: Column(
           children: [
-            const SizedBox(height: 10),
-            AutoSizeText(Screen.vehiclePermit.toTitle),
-            const SizedBox(height: 15),
-            const CardHeadingListTile(
+            SizedBox(height: 10),
+            AutoSizeText('Vehicle Permit Details'),
+            SizedBox(height: 15),
+            CardHeadingListTile(
               leading: Icon(Icons.check),
               title: Text(uploadPictureText),
               tileAlign: ListTileTitleAlignment.top,
             ),
-            const CardHeadingListTile(
+            CardHeadingListTile(
               leading: Icon(Icons.check),
               title: Text(uploadPictureTwo),
               tileAlign: ListTileTitleAlignment.top,
             ),
-            const CardHeadingListTile(
+            CardHeadingListTile(
               leading: Icon(Icons.check),
               title: Text(uploadPictureThree),
               tileAlign: ListTileTitleAlignment.top,
             ),
-            const CardHeadingListTile(
+            CardHeadingListTile(
               leading: Icon(Icons.check),
               title: Text(pictureLengthText),
               tileAlign: ListTileTitleAlignment.top,
             ),
-            const SizedBox(height: 10),
-            const _VehicleIssuedDetails(),
-            const _VehiclePermitUpload(),
+            SizedBox(height: 10),
+            _VehicleIssuedDetails(),
+            _VehiclePermitUpload(),
           ],
         ),
       ),

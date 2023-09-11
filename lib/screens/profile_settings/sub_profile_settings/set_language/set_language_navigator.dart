@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class SetLanguageRoute {
   static GoRoute page() => GoRoute(
     path: Screen.setLanguage.path,
-    name: Screen.setLanguage.toName,
+    name: Screen.setLanguage.cName,
     builder: (ctx, state) => const SetLanguage(),
   );
 }

@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class SupportRoute {
   static GoRoute page() => GoRoute(
     path: Screen.support.path,
-    name: Screen.support.toName,
+    name: Screen.support.cName,
     builder: (ctx, state) => const Support(),
   );
 }

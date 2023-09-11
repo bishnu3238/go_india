@@ -5,7 +5,7 @@ import '../../../../routes/route_path.dart';
 class DemoRoute {
   static GoRoute page() => GoRoute(
     path: Screen.splash.path,
-    name: Screen.splash.toName,
+    name: Screen.splash.cName,
     builder: (ctx, state) => const Demo(),
   );
 }

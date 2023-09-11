@@ -29,7 +29,7 @@ class SignUpPage extends StatelessWidget {
 class SignUpRoute {
   static GoRoute page() => GoRoute(
         path: Screen.signUp.path,
-        name: Screen.signUp.toName,
+        name: Screen.signUp.cName,
         builder: (ctx, state) => const SignUpPage(),
       );
 }

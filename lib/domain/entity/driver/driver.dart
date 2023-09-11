@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:go_india/domain/entity/driver/driver_details.dart';
+import 'package:go_india/package/custom_widget/image_shower.dart';
 
 import '../../../utility/utility/utility.dart';
 
@@ -38,7 +39,6 @@ class Driver extends Equatable {
     this.date,
     this.time,
   });
-
 
   @override
   String toString() {
@@ -86,6 +86,14 @@ class Driver extends Equatable {
   bool get isEmpty => this == Driver.empty || id == '0';
   bool get isNotEmpty => this != Driver.empty;
 
+  ImgType get imgType => image.contains(profilePictureImage)
+      ? ImgType.local
+      : image.contains('http')
+          ? ImgType.network
+          : image.contains('com.goindia.go_india')
+              ? ImgType.file
+              : ImgType.local;
+
   @override
   List<Object?> get props => [
         id,
@@ -125,28 +133,4 @@ class Driver extends Equatable {
       'time': time.toString(),
     };
   }
-
-  // factory Driver.fromMap(Map<String, dynamic> map) {
-  //   return Driver(
-  //     id: map['id'] as String? ?? "0",
-  //     uid: map['uid'] as String? ?? "",
-  //     name: map['name'] as String? ?? "",
-  //     mobile: map['mobile'] as String? ?? "",
-  //     image: map['image'] as String? ?? "",
-  //     activeStatus: map['activeStatus'] as String? ?? "",
-  //     joiningBonusApproved: map['joiningBonusApproved'] as String? ?? "",
-  //     email: map['email'] as String? ?? "",
-  //     referralCode: map['refer_code'] as String? ?? "",
-  //     rating: map['rating'] as String? ?? "",
-  //     gender: map['gender'] == ''
-  //         ? Gender.unknown
-  //         : (map['gender'] as String).stringToGender,
-  //     authStatus: (map['authStatus'] as String).stringToAuthStatus ??
-  //         AuthStatus.unknown,
-  //     status: int.tryParse(map['status']) ?? 0,
-  //     driverDetails: DriverDetails.fromMap(map['driverDetails']),
-  //     date: DateTime.tryParse(map['date']) ?? DateTime.now(),
-  //     time: DateTime.tryParse(map['time']) ?? DateTime.now(),
-  //   );
-  // }
 }

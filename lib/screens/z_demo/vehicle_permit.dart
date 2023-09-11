@@ -31,7 +31,7 @@ SimpleAppBar _simpleAppBar(BuildContext context) {
       iconColor: theme.shadowColor,
     ),
     centerTitle: false,
-    label: Screen.aadharCard.toTitle,
+    label: Screen.aadharCard.name,
     style: gideonRoman(color: theme.colorScheme.shadow, weight: fw5),
   );
 }
