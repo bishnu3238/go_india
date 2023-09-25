@@ -13,17 +13,15 @@ class WelcomeRoute {
           path: Screen.welcome.path,
           name: Screen.welcome.cName,
           builder: (ctx, state) => Welcome(
-                cubit: getIt<WelcomeCubit>(),
+                cubit: get<WelcomeCubit>(),
               ),
           routes: [
             GoRoute(
               path: addVehiclePath,
-
               builder: (ctx, state) => const AddNewVehicle(),
             ),
             GoRoute(
               path: driverInitialDetailsPath,
-
               builder: (ctx, state) => const DriverInitialDetails(),
             )
           ]);

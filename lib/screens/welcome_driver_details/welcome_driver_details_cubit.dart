@@ -3,6 +3,7 @@ import 'package:formz/formz.dart';
 import 'package:flutter/material.dart';
 import 'package:go_india/routes/route_path.dart';
 import 'package:go_router/go_router.dart';
+import '../../utility/utility/utility.dart';
 import 'export.dart';
 import '../../domain/store/store.dart';
 import '../../domain/entity/entity.dart';
@@ -113,6 +114,10 @@ class WelcomeDriverDetailsCubit extends Cubit<WelcomeDriverDetailsState> {
   showMessage(BuildContext context) {
     notifier.errorMessage(
         context: context, message: 'Please Fill required details');
+  }
+
+  Future<void> showPopUp(BuildContext context) async {
+    await popUp(context, [logoutMenu]);
   }
 
   Future welcomeDriver(BuildContext context) async {

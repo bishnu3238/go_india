@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:pinput/pinput.dart';
 import '../../../../domain/repository/repository.dart';
 import '../../../../domain/store/store.dart';
 import '../../../../utility/utility/utility.dart';
@@ -55,12 +56,11 @@ class LoginCubit extends Cubit<LoginState> {
     await _driverRepository.checkPhoneNo({
       "mobile": state.phoneNumber.value
     }).then((value) => value.fold(
-          (l) {
-            emit(state.copyWith(status: FormzSubmissionStatus.failure));
-
+          (l) {'hello$l'.log();
             emit(state.copyWith(
-                errorMessage: l.message,
-                status: FormzSubmissionStatus.failure));
+              status: FormzSubmissionStatus.failure,
+              errorMessage: l.message,
+            ));
           },
           (r) {
             r.log();
@@ -68,7 +68,7 @@ class LoginCubit extends Cubit<LoginState> {
             if (r) {
               emit(state.copyWith(status: FormzSubmissionStatus.success));
               _detailsRepository.getVehicleDetails(
-                  {'driver_id': getIt<DriverStore>().state.id});
+                  {'driver_id': get<DriverStore>().state.id});
             } else {
               sendOpt();
             }
@@ -77,14 +77,14 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   // keytool -list -v -alias androiddebugkey -keystore C:\Users\deepb\.android\debug.keystore
+  // keytool -list -v -alias androiddebugkey -keystore C:\Users\Public\debug.keystore
 
   Future<void> sendOpt() async {
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
     await _authRepository.sendOtp(
       phoneNumber: state.phoneNumber.phoneNoWithCountryCode,
-      codeSend: (String vid, int? token) {
+      codeSend: (String vid, int? token) async {
         emit(state.copyWith(status: FormzSubmissionStatus.success));
-
         context.go(Screen.otp.path,
             extra: OtpPageInitialParams(
               vID: vid,
@@ -108,4 +108,17 @@ class LoginCubit extends Cubit<LoginState> {
           );
     }
   }
+
+  Future hintProvider() async {
+    var appSing = await smartAuth.getAppSignature();
+    appSing.log();
+    Credential? res = await smartAuth.requestHint(
+      isPhoneNumberIdentifierSupported: true,
+      showCancelButton: true,
+    );
+    if (res == null) return;
+    numberChanged(res.id.removeCountryCode);
+  }
+
+  smsTwo() async => await autoFill.getAppSignature.then((value) => value.log());
 }

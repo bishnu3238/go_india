@@ -29,12 +29,10 @@ class AppRouter {
   static GoRouter get router => _goRouter;
 
   static final GoRouter _goRouter = GoRouter(
-    initialLocation: initialPage,
-    debugLogDiagnostics: true,
     routerNeglect: true,
+    debugLogDiagnostics: true,
+    initialLocation: initialPage,
     restorationScopeId: 'router',
-    // urlPathStrategy: UrlPathStrategy.path,
-
     routes: <GoRoute>[
       SplashRoute.page(),
       OnBoardingRoute.page(),
@@ -58,14 +56,14 @@ class AppRouter {
       body: Center(child: Text(state.extra.toString())),
     ),
     refreshListenable: GoRouterRefreshBloc(
-      getIt<DriverStore>(),
-      getIt<DriverVehicleStore>(),
+      get<DriverStore>(),
+      get<DriverVehicleStore>(),
     ),
     redirect: (ctx, state) {
       // Store
-      var store = getIt<DriverStore>().state;
+      var store = get<DriverStore>().state;
       var detailsInfo = ctx.read<DriverInitialDetailsCubit>().state;
-      var vStore = getIt<DriverVehicleStore>().state;
+      var vStore = get<DriverVehicleStore>().state;
 
       store.log();
       vStore.log();

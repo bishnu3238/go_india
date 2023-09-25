@@ -1,5 +1,5 @@
 import 'package:go_india/domain/entity/entity.dart';
-import 'package:go_india/utility/constant/app_constant.dart';
+import '../../../../utility/utility/utility.dart';
 
 class PanInfoJson {
   final String panNo, panImage;

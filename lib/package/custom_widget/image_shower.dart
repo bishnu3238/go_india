@@ -1,3 +1,7 @@
+ import 'dart:ui';
+import 'dart:typed_data';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/material.dart';
 
 import '../../package/package/package.dart';
@@ -37,3 +41,5 @@ class ImageShower extends StatelessWidget {
     );
   }
 }
+
+

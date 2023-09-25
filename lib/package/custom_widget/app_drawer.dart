@@ -60,9 +60,9 @@ class AppDrawer extends StatelessWidget {
             onTap: () {},
           ),
           BlocBuilder<ThemeStore, ThemeState>(
-            bloc: getIt<ThemeStore>(),
+            bloc: get<ThemeStore>(),
             builder: (context, state) {
-              var bloc = getIt<ThemeStore>();
+              var bloc = get<ThemeStore>();
               return ListTile(
                 leading: const Icon(Icons.dark_mode),
                 title: const Text('Dark Mode'),
@@ -76,12 +76,12 @@ class AppDrawer extends StatelessWidget {
           ),
 
           BlocBuilder<ThemeStore, ThemeState>(
-            bloc: getIt<ThemeStore>(),
+            bloc: get<ThemeStore>(),
             builder: (context, state) {
               return ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Log Out'),
-                onTap: () => getIt<AuthRepository>().logOut(),
+                onTap: () => get<AuthRepository>().logOut(),
               );
             },
           ),

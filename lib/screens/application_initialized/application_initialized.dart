@@ -24,20 +24,20 @@ class _ApplicationInitializedState extends State<ApplicationInitialized> {
       providers: [
         BlocProvider(
           create: (create) => DriverInitialDetailsCubit(
-            getIt(),
-            getIt(),
-            getIt(),
-            getIt(),
+            get(),
+            get(),
+            get(),
+            get(),
           ),
           lazy: true,
         ),
         BlocProvider(
-          create: (create) => ProfileSettingsCubit(getIt()),
+          create: (create) => ProfileSettingsCubit(get()),
           lazy: true,
         ),
       ],
       child: BlocBuilder<ThemeStore, ThemeState>(
-        bloc: getIt<ThemeStore>(),
+        bloc: get<ThemeStore>(),
         builder: (context, state) {
           return MaterialApp.router(
             title: appTitle,

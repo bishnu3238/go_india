@@ -5,6 +5,8 @@ export 'card_grid_view_with_details.dart';
 export 'card_img_with_title.dart';
 export 'clear_focus.dart';
 export 'icon_text_button.dart';
+export 'show_all_text.dart';
+export 'profile_image.dart';
 export 'image_picker.dart';
 export 'image_text_column.dart';
 export 'fav_icon.dart';

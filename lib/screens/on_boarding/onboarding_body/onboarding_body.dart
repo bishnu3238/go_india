@@ -22,8 +22,10 @@ class OnboardingBody extends StatelessWidget {
         children: [
           const Spacer(),
 
+
+          // const Image(image: AssetImage(onboardingTwo,),),
           ImageShower(
-            imageUrl: onboardingOne,
+            imageUrl: onboardingTwo,
             imgType: ImgType.local,
             fit: BoxFit.fitWidth,
             width: getScreenWidth(kLayoutWidth*4/5),

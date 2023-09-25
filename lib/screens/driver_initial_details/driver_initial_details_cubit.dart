@@ -40,7 +40,7 @@ class DriverInitialDetailsCubit
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
 
     Map<String, String> data = {
-      'id': getIt<DriverVehicleStore>().state.id,
+      'id': get<DriverVehicleStore>().state.id,
       'status': '1'
     };
     emit(state.copyWith(status: FormzSubmissionStatus.inProgress));

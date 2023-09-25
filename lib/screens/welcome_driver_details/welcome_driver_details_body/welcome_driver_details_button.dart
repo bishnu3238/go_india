@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:go_india/utility/constant/colors.dart';
 
-import '../../../package/custom_button/el_button.dart';
- import '../../../utility/constant/text_style.dart';
+import '../../../package/package/package.dart';
+import '../../../utility/constant/text_style.dart';
+import '../../../utility/utility/utility.dart';
 import '../export.dart';
 
 class WelcomeDriverDetailsButton extends StatelessWidget {
@@ -22,7 +23,7 @@ class WelcomeDriverDetailsButton extends StatelessWidget {
           children: [
             ElButton(
               text: 'Continue',
-              style: gideonRoman(color: kGolden),
+              style: gideonRoman(color: kGolden, weight: fw9),
               showLoading: state.status.isInProgress,
               onTap: cubit.state.isValid && cubit.state.isAgree
                   ? () => cubit.welcomeDriver(context)

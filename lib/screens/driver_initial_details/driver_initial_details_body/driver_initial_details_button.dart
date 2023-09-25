@@ -20,7 +20,7 @@ class DriverInitialDetailsButton extends StatelessWidget {
           children: [
             ElButton(
               text: 'Submit Application',
-              style: gideonRoman(color: kGolden),
+              style: gideonRoman(color: kGolden, weight: fw9),
               showLoading: state.status.isInProgress,
               onTap: state.isAllDone
                   ? () => cubit.done(context)

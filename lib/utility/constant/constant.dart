@@ -1,4 +1,5 @@
 export 'app_constant.dart';
+export 'images.dart';
 export 'duration.dart';
 export 'enumeration.dart';
 export 'colors.dart';

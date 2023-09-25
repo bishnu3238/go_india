@@ -6,10 +6,11 @@ import 'package:intl_phone_field/phone_number.dart';
 import '../../utility/utility/utility.dart';
 import '../package/package.dart';
 
-class PhoneInputField extends StatelessWidget {
+class PhoneInputField extends StatefulWidget {
   final String hint;
   final bool readOnly;
   final String? error;
+  final String? label;
   final String? initialNumber;
   final Function(String) onDone;
   final TextEditingController? phone;
@@ -20,6 +21,7 @@ class PhoneInputField extends StatelessWidget {
   const PhoneInputField({
     Key? key,
     this.phone,
+    this.label,
     this.error,
     this.validator,
     this.initialNumber,
@@ -31,16 +33,22 @@ class PhoneInputField extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<PhoneInputField> createState() => _PhoneInputFieldState();
+}
+
+class _PhoneInputFieldState extends State<PhoneInputField> {
+  @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context).textTheme;
     return IntlPhoneField(
+
       enabled: true,
-      controller: phone,
-      readOnly: readOnly,
+       controller: widget.phone, //?? TextEditingController(text: widget.initialNumber),
+      readOnly: widget.readOnly,
       showCountryFlag: true,
       initialCountryCode: "IN",
-      initialValue: initialNumber,
-      invalidNumberMessage: error,
+      initialValue: widget.initialNumber,
+      invalidNumberMessage: widget.error,
       cursorColor: Colors.blue.shade700,
       textAlign: TextAlign.justify,
       dropdownIconPosition: IconPosition.trailing,
@@ -48,30 +56,16 @@ class PhoneInputField extends StatelessWidget {
       decoration: InputDecoration(
         enabled: true,
         isDense: true,
-        hintText: hint,
-        labelText: 'Phone Number',
+        hintText: widget.hint,
+        labelText: widget.label,
         border: const OutlineInputBorder(),
         focusedBorder: const OutlineInputBorder(),
         labelStyle: theme.titleSmall!.copyWith(color: kDBlue),
         disabledBorder: OutlineInputBorder(borderRadius: radius12),
       ),
-      onChanged: onNumberChange,
-      onCountryChanged: onCountryChange,
-      onSubmitted: onDone,
-    );
-  }
-}
-
-class PasswordInput extends StatelessWidget {
-  const PasswordInput({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-      key: const Key('loginForm_passwordInput_textField'),
-      onChanged: (password) {},
-      obscureText: true,
-      decoration: inputFieldDecoration(context: context),
+      onChanged: widget.onNumberChange,
+      onCountryChanged: widget.onCountryChange,
+      onSubmitted: widget.onDone,
     );
   }
 }

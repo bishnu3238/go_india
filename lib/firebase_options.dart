@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyDsgr6Fcg_cI3y_4MhAho52W0RNnKbjNhc',
-    appId: '1:440073782621:web:a8adf8a443665d357a94b4',
-    messagingSenderId: '440073782621',
-    projectId: 'go-india-d3676',
-    authDomain: 'go-india-d3676.firebaseapp.com',
-    storageBucket: 'go-india-d3676.appspot.com',
-    measurementId: 'G-Q5RN1LY54B',
+    apiKey: 'AIzaSyAEgSSCmSpZZ9eYA9b8g9o2-Bh_3dNEvTA',
+    appId: '1:762867458346:web:386b5e51391d9982d9be53',
+    messagingSenderId: '762867458346',
+    projectId: 'go-india-aa686',
+    authDomain: 'go-india-aa686.firebaseapp.com',
+    storageBucket: 'go-india-aa686.appspot.com',
+    measurementId: 'G-M7FSFMCZG1',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCcutrcE504JpgtCoLnNxPd3ve7N6yf0KU',
-    appId: '1:440073782621:android:2d4eb7f244af61bc7a94b4',
-    messagingSenderId: '440073782621',
-    projectId: 'go-india-d3676',
-    storageBucket: 'go-india-d3676.appspot.com',
+    apiKey: 'AIzaSyBhoU0ghvkOD36e_a2ZP6IpxVCNfRryWeY',
+    appId: '1:762867458346:android:6d009c2b6956f664d9be53',
+    messagingSenderId: '762867458346',
+    projectId: 'go-india-aa686',
+    storageBucket: 'go-india-aa686.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDgpDABUTtznNBaJ-exw9Ml74vqqj8C-YA',
-    appId: '1:440073782621:ios:0d39b1c493787e8f7a94b4',
-    messagingSenderId: '440073782621',
-    projectId: 'go-india-d3676',
-    storageBucket: 'go-india-d3676.appspot.com',
+    apiKey: 'AIzaSyBRSu4iacYH4BCTbXDDQlLeNJ8rGyneScA',
+    appId: '1:762867458346:ios:ddc8040dec758f15d9be53',
+    messagingSenderId: '762867458346',
+    projectId: 'go-india-aa686',
+    storageBucket: 'go-india-aa686.appspot.com',
     iosBundleId: 'com.goindia.goIndia',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDgpDABUTtznNBaJ-exw9Ml74vqqj8C-YA',
-    appId: '1:440073782621:ios:61692dfaf39295e57a94b4',
-    messagingSenderId: '440073782621',
-    projectId: 'go-india-d3676',
-    storageBucket: 'go-india-d3676.appspot.com',
+    apiKey: 'AIzaSyBRSu4iacYH4BCTbXDDQlLeNJ8rGyneScA',
+    appId: '1:762867458346:ios:ba2b4199fb2984f1d9be53',
+    messagingSenderId: '762867458346',
+    projectId: 'go-india-aa686',
+    storageBucket: 'go-india-aa686.appspot.com',
     iosBundleId: 'com.goindia.goIndia.RunnerTests',
   );
 }

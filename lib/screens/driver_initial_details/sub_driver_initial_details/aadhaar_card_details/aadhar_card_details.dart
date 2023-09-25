@@ -11,7 +11,7 @@ class AadhaarCardDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => AadhaarCardCubit(getIt(), getIt(), getIt(), getIt()),
+      create: (context) => AadhaarCardCubit(get(), get(), get(), get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const AadhaarCardBody(),
@@ -46,7 +46,7 @@ class AadhaarNoDetailsButton extends StatelessWidget {
             children: [
               ElButton(
                 text: 'Done',
-                style: gideonRoman(color: kGolden),
+                style: gideonRoman(color: kGolden, weight: fw9),
                 showLoading: state.status.isInProgress,
                 onTap: state.isValid ? () => cubit.done(context) : null,
               ),

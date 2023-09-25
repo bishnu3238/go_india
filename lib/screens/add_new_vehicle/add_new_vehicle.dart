@@ -14,7 +14,7 @@ class AddNewVehicle extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          AddNewVehicleCubit(getIt(), getIt(), getIt(), getIt(), getIt())
+          AddNewVehicleCubit(get(), get(), get(), get(), get())
             ..init(),
       child: const Scaffold(
         appBar: SimpleAppBar(centerTitle: false, title: AppBarLogo()),
@@ -40,7 +40,7 @@ class AddNewVehicleButton extends StatelessWidget {
             EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
         child: ElButton(
           text: 'Continue',
-          style: gideonRoman(color: kGolden),
+          style: gideonRoman(color: kGolden, weight: fw9),
           showLoading: state.status.isInProgress,
           onTap: cubit.state.isValid
               ? () => cubit.vehicleDetailsSubmit(context)

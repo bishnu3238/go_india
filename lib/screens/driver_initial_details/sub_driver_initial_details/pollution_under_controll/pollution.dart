@@ -12,7 +12,7 @@ class Pollution extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => PollutionCubit(getIt(), getIt(), getIt(), getIt()),
+      create: (create) => PollutionCubit(get(), get(), get(), get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const PollutionBody(),

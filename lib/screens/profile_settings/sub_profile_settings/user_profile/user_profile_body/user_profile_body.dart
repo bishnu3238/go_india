@@ -84,24 +84,30 @@ class _ProfileImage extends StatelessWidget {
     return BlocBuilder<UserProfileCubit, UserProfileState>(
         builder: (context, state) {
       var cubit = context.read<UserProfileCubit>();
-      return Container(
-        width: getScreenWidth(kLayoutWidth),
-         decoration: BoxDecoration(
-          borderRadius: radius10,
-          color: theme.colorScheme.inversePrimary,
-        ),
-        child: Padding(
-          padding:edgeInsets5,
-          child: Center(
-            child: ImageShower(
-              borderRadius: 8,
-              height: getScreenHeight(kLayoutHeight * 1 / 4),
-              imageUrl:  state.driver.image,
-              imgType: state.imgType,
-            ),
-          ),
-        ),
+      return  ProfileImageCircle(
+        image: state.driver.image,
+        imgType: state.driver.imgType,
+        fit: BoxFit.cover,
+        // onTap: () => cubit.pickProfileImage(context),
       );
+      //   Container(
+      //   width: getScreenWidth(kLayoutWidth),
+      //    decoration: BoxDecoration(
+      //     borderRadius: radius10,
+      //     color: theme.colorScheme.inversePrimary,
+      //   ),
+      //   child: Padding(
+      //     padding:edgeInsets5,
+      //     child: Center(
+      //       child: ImageShower(
+      //         borderRadius: 8,
+      //         height: getScreenHeight(kLayoutHeight * 1 / 4),
+      //         imageUrl:  state.driver.image,
+      //         imgType: state.imgType,
+      //       ),
+      //     ),
+      //   ),
+      // );
     });
   }
 }

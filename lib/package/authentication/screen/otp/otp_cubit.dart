@@ -3,20 +3,20 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
- import 'package:go_india/routes/route_path.dart';
+import 'package:go_india/routes/route_path.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../domain/store/store.dart';
+import '../../../../utility/utility/utility.dart';
 import '../../../package/package.dart';
 import 'export.dart';
 
 class OtpCubit extends Cubit<OtpState> {
-  OtpCubit(this._authRepository,   this.driverStore,
-      this.notifier, this.params)
+  OtpCubit(this._authRepository, this.driverStore, this.notifier, this.params)
       : super(OtpState(params));
 
   final AuthRepository _authRepository;
-   final OtpPageInitialParams params;
+  final OtpPageInitialParams params;
   final Notifier notifier;
   final DriverStore driverStore;
 
@@ -41,8 +41,6 @@ class OtpCubit extends Cubit<OtpState> {
               emit(state.copyWith(errorMessage: l.message));
             },
             (driver) {
-
-
               '''hello $driver'''.log();
               driverStore.setDriver(driver);
 
@@ -52,7 +50,27 @@ class OtpCubit extends Cubit<OtpState> {
         );
   }
 
-  void autoFillOTP() async {}
+  void autoFillOtp() async {
+    'hello world'.log();
+    try {
+      var sms = await smartAuth.getSmsCode(useUserConsentApi: true);
+      if (sms.succeed) {
+        'Success $sms'.log();
+        inputOtp(sms.code!);
+        return;
+      }
+      'Failure $sms'.log();
+    } catch (e) {
+      e.log();
+    }
+
+    try {
+      'hello world 2'.log();
+      autoFill.listenForCode();
+    } catch (e) {
+      'error $e'.log();
+    }
+  }
 
   static void listener(BuildContext context, OtpState state) {
     if (state.status.isFailure) {
@@ -71,18 +89,21 @@ class OtpCubit extends Cubit<OtpState> {
   }
 
   Future<void> resendOTP(BuildContext context) async {
+    autoFillOtp();
     await _authRepository.sendOtp(
-        phoneNumber: params.phoneNO.phoneNoWithCountryCode,
-        codeSend: (String vid, int? token) {
-          notifier.successMessage(
-              context: context, message: 'message send successful');
-          emit(state.copyWith(
-              params: OtpPageInitialParams(
-                  vID: vid, phoneNO: params.phoneNO, token: token)));
-        },     pvFailed: (FirebaseAuthException e) {
-      var left = FirebaseSendOtpFailure.fromCode(e.code);
-      emit(state.copyWith(
-          errorMessage: left.message, status: FormzSubmissionStatus.failure));
-    },);
+      phoneNumber: params.phoneNO.phoneNoWithCountryCode,
+      codeSend: (String vid, int? token) {
+        notifier.successMessage(
+            context: context, message: 'message send successful');
+        emit(state.copyWith(
+            params: OtpPageInitialParams(
+                vID: vid, phoneNO: params.phoneNO, token: token)));
+      },
+      pvFailed: (FirebaseAuthException e) {
+        var left = FirebaseSendOtpFailure.fromCode(e.code);
+        emit(state.copyWith(
+            errorMessage: left.message, status: FormzSubmissionStatus.failure));
+      },
+    );
   }
 }

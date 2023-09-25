@@ -7,12 +7,27 @@ import 'package:pinput/pinput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 import '../export.dart';
 import '../../../../package/package.dart';
 import '../../../../../utility/utility/utility.dart';
 
-class OtpBody extends StatelessWidget {
-  const OtpBody({super.key});
+class OtpBody extends StatefulWidget {
+  final OtpCubit cubit;
+  const OtpBody({super.key, required this.cubit});
+
+  @override
+  State<OtpBody> createState() => _OtpBodyState();
+}
+
+class _OtpBodyState extends State<OtpBody> {
+  OtpCubit get cubit => widget.cubit;
+
+  @override
+  void initState() {
+    super.initState();
+    cubit.autoFillOtp();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +46,7 @@ class OtpBody extends StatelessWidget {
                   SizedBox(height: 25),
                   _OtpInput(),
                   SizedBox(height: 30),
+                  // _Text(),
                   _OtpVerifyButton(),
                   SizedBox(height: 30),
                   _OtpResendButton()
@@ -116,6 +132,22 @@ class _OtpHeaderImage extends StatelessWidget {
           width: getScreenWidth(kLayoutWidth * 1 / 2),
         ),
       ),
+    );
+  }
+}
+
+
+class _Text extends StatelessWidget {
+  const _Text({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return PinFieldAutoFill(
+      // decoration: borderInputDecoration(context: context),// basic InputDecoration
+        currentCode: '', // prefill with a code
+        onCodeSubmitted:(sms){}, //code submitted callback
+        onCodeChanged: (sms){},//code changed callback
+        codeLength: 6//code length, default 6
     );
   }
 }

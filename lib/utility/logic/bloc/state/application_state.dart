@@ -36,23 +36,30 @@ final class ApplicationState extends Equatable {
         'screen': screen.name,
       };
 
-  factory ApplicationState.fromJson(json) => ApplicationState._(
-        status: (json['status'] as String? ?? AuthStatus.unknown.name)
-                .stringToAuthStatus ??
-            AuthStatus.unknown,
-        screen:
-            (json['screen'] as String? ?? Screen.splash.name).stringToScreen,
-      );
 
-  ApplicationState copyWith({
-    AuthStatus? status,
-    Screen? screen,
-  }) =>
-      ApplicationState._(
-        status: status ?? this.status,
-        screen: screen ?? this.screen,
-      );
 
   @override
   List<Object> get props => [status, screen];
+
+
+
+
+  // factory ApplicationState.fromJson(json) => ApplicationState._(
+  //   status: (json['status'] as String? ?? AuthStatus.unknown.name)
+  //       .stringToAuthStatus ??
+  //       AuthStatus.unknown,
+  //   screen:
+  //   (json['screen'] as String? ?? Screen.splash.name).stringToScreen,
+  // );
+  //
+  // ApplicationState copyWith({
+  //   AuthStatus? status,
+  //   Screen? screen,
+  // }) =>
+  //     ApplicationState._(
+  //       status: status ?? this.status,
+  //       screen: screen ?? this.screen,
+  //     );
+  //
+
 }

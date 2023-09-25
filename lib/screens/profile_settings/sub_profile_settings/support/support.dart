@@ -11,7 +11,7 @@ class Support extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => SupportCubit(getIt()),
+      create: (create) => SupportCubit(get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const SupportBody(),

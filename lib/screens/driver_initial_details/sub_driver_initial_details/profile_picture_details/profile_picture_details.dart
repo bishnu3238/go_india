@@ -13,7 +13,7 @@ class ProfilePicture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => ProfilePictureCubit(getIt(), getIt(), getIt()),
+      create: (create) => ProfilePictureCubit(get(), get(), get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const ProfilePictureBody(),
@@ -45,7 +45,7 @@ class ProfilePictureButton extends StatelessWidget {
           children: [
             ElButton(
               text: state.profileImage.isNotEmpty ? 'Upload' : 'Take Photo',
-              style: gideonRoman(color: kGolden),
+              style: gideonRoman(color: kGolden, weight: fw9),
               showLoading: state.status.isInProgress,
               onTap: () => state.profileImage.isNotEmpty
                   ? cubit.done(context)

@@ -23,10 +23,10 @@ SimpleAppBar simpleAppBar(key) => SimpleAppBar(
               },
               listener: (context, state) {
                 state.onlineStatus
-                    ? getIt<HomeBloc>().notifier.successMessage(
+                    ? get<HomeBloc>().notifier.successMessage(
                         context: context,
                         message: state.message ?? 'Your are online now')
-                    : getIt<HomeBloc>().notifier.errorMessage(
+                    : get<HomeBloc>().notifier.errorMessage(
                         context: context,
                         message: state.message ?? 'Your are offline ');
               },
@@ -34,7 +34,7 @@ SimpleAppBar simpleAppBar(key) => SimpleAppBar(
                 return Switch(
                     value: state.onlineStatus,
                     onChanged: (value) =>
-                        getIt<HomeBloc>().add(ChangeOnlineStatus(value)));
+                        get<HomeBloc>().add(ChangeOnlineStatus(value)));
               },
             ),
           ],

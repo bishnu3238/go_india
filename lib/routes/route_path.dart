@@ -32,30 +32,29 @@ enum Screen {
   setPreferences,
   setLanguage,
   waitForVerification,
-  signUp, editProfile,
+  signUp,
+  editProfile,
+  initialTestPage,
 }
 
 extension AppPageExtension on Screen {
-
   String get path => '/$name'; // e.g : "/splash"
 
-  String get subPath => name;  // e.g : "splash"
+  String get subPath => name; // e.g : "splash"
 
   String get cName => name.toUpperCase(); // e.g : "SPLASH"
 
   String get capitalName {
     String enumString = toString().split('.').last;
-    List<String> words =
-        enumString.split(RegExp('(?=[A-Z])'));
+    List<String> words = enumString.split(RegExp('(?=[A-Z])'));
     String result = words
         .map((word) => word[0].toUpperCase() + word.substring(1))
         .join(' ');
     return result;
   }
 
-  String    nameRoute(BuildContext context) => GoRouter.of(context).namedLocation(cName);
+  String nameRoute(BuildContext context) =>
+      GoRouter.of(context).namedLocation(cName);
 
-
-  void go(BuildContext context)=> context.go(nameRoute(context)) ;
-
+  void go(BuildContext context) => context.go(nameRoute(context));
 }

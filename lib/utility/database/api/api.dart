@@ -31,3 +31,5 @@ const submitVehicleInsuranceApi = '$goIndia/$apiFolder/addVehicleInsurance.php';
 const submitAllApplicationApi = '$goIndia/$apiFolder/submit_driver_all_aplication.php';
 const getMenuRateApi = '$goIndia/$apiFolder/getManualRate.php';
 const getDynamicRateApi = '$goIndia/$apiFolder/getDynamicRate.php';
+const getQuizApi = '$goIndia/$apiFolder/get_quiz.php';
+const getInstructionVideoApi = '$goIndia/$apiFolder/get_video.php';

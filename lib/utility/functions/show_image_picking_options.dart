@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:go_router/go_router.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../domain/failure/failure.dart';
 import '../../package/package/package.dart';
 import 'package:image_picker/image_picker.dart';

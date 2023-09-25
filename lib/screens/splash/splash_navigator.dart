@@ -14,7 +14,7 @@ mixin SplashRoute {
   static GoRoute page() => GoRoute(
         path: Screen.splash.path,
         name: Screen.splash.cName,
-        builder: (ctx, state) => Splash(cubit: getIt<SplashCubit>()),
+        builder: (ctx, state) => Splash(cubit: get<SplashCubit>()),
       );
 
 

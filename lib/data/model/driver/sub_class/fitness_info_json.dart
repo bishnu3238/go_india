@@ -1,4 +1,4 @@
-import 'package:go_india/utility/constant/app_constant.dart';
+import '../../../../utility/utility/utility.dart';
 
 import '../../../../domain/entity/entity.dart';
 

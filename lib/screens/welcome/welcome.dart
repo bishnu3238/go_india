@@ -13,7 +13,7 @@ class Welcome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: getIt<WelcomeCubit>(),
+      value: get<WelcomeCubit>(),
       child: const Scaffold(
         appBar: SimpleAppBar(centerTitle: false, title: AppBarLogo()),
         body: WelcomeBody(),

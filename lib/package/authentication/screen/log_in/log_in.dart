@@ -11,15 +11,14 @@ class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: const LogInAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: BlocProvider(
-          create: (_) => LoginCubit(getIt(), getIt(),getIt(), getIt()),
-          child: Builder(builder: (context) {
-            return const LoginForm();
-          }),
+          create: (_) => LoginCubit(get(), get(), get(), get()),
+          child: const LoginForm(),
         ),
       ),
     );

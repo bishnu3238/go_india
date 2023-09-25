@@ -13,10 +13,10 @@ class IdentityDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (create) => IdentityDetailsCubit(
-        getIt(),
-        getIt(),
-        getIt(),
-        getIt(),
+        get(),
+        get(),
+        get(),
+        get(),
       ),
       child: Scaffold(
         appBar: _simpleAppBar(context),

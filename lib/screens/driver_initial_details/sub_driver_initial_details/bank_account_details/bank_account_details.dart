@@ -13,7 +13,7 @@ class BankAccountDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return BlocProvider(
-      create: (context) => BankAccountDetailsCubit(getIt(), getIt(), getIt()),
+      create: (context) => BankAccountDetailsCubit(get(), get(), get()),
       child: Scaffold(
         appBar: _simpleAppBar(context, theme),
         body: const BankAccountDetailsBody(),

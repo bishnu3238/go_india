@@ -13,10 +13,10 @@ class FitnessCertificate extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (create) => FitnessCertificateCubit(
-        getIt(),
-        getIt(),
-        getIt(),
-        getIt(),
+        get(),
+        get(),
+        get(),
+        get(),
       ),
       child: Scaffold(
         appBar: _simpleAppBar(context),

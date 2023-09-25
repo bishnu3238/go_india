@@ -11,7 +11,7 @@ import '../../../../domain/store/store.dart';
 import '../../../../package/package/package.dart';
 import '../../logic/logic.dart';
 
-class ApplicationBloc extends HydratedBloc<ApplicationEvent, ApplicationState> {
+class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
   final AuthRepository _authRepository;
   final DriverRepository _driverRepository;
   final DriverDetailsRepository _driverDetailsRepository;
@@ -32,7 +32,7 @@ class ApplicationBloc extends HydratedBloc<ApplicationEvent, ApplicationState> {
     _userSubscription = _appUserChangeListen;
 
     if (state.status == AuthStatus.authenticated) {
-      var driverId = getIt<DriverStore>().state.id;
+      var driverId = get<DriverStore>().state.id;
       var data = {'driver_id': driverId};
       _driverRepository.getDriver(driverId);
       _driverDetailsRepository.getVehicleDetails(data);
@@ -58,18 +58,6 @@ class ApplicationBloc extends HydratedBloc<ApplicationEvent, ApplicationState> {
   Future<void> close() {
     _userSubscription.cancel();
     return super.close();
-  }
-
-  @override
-  ApplicationState? fromJson(Map<String, dynamic> json) =>
-      ApplicationState.fromJson(json);
-
-  @override
-  Map<String, dynamic>? toJson(ApplicationState state) {
-    Map<String, dynamic> data = {
-      'status': state.status,
-    };
-    return data;
   }
 }
 

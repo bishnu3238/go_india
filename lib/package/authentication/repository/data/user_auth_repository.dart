@@ -114,8 +114,8 @@ class UserAuthRepository implements AuthRepository {
   @override
   Future<Either<FirebaseSendOtpFailure, bool>> sendOtp({
     required String phoneNumber,
-    required CodeSend codeSend,    required PVFailed pvFailed,
-
+    required CodeSend codeSend,
+    required PVFailed pvFailed,
   }) async {
     try {
       if (kIsWeb) {
@@ -146,12 +146,12 @@ class UserAuthRepository implements AuthRepository {
 
   void _timeOut(String verificationId) {}
 
-  void _verificationCompleted(auth.PhoneAuthCredential credential) {
+  void _verificationCompleted(auth.PhoneAuthCredential credential) async {
+    var sms = await smartAuth.getSmsCode();
+    if (sms.succeed) 'Sms Code: ${sms.code}'.log();
     '${credential.smsCode} ${credential.signInMethod} ${credential.providerId}'
         .log();
   }
-
-
 
   @override
   Future<void> registerWithEmailAndPassword(
@@ -247,7 +247,7 @@ extension on auth.User {
   Driver get toDriver => Driver.empty.copyWith(
         uid: uid,
         name: displayName ?? '',
-        mobile: phoneNumber ?? '',
+        mobile: (phoneNumber)?.removeCountryCode ?? '',
         image: photoURL ?? '',
         gender: Gender.unknown,
         authStatus: AuthStatus.authenticated,

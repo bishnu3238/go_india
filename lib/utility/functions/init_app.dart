@@ -7,7 +7,7 @@ import '../../firebase_options.dart';
 
 Future initApp() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform,);
   await Hydrated.instance.initialize();
   Bloc.observer = AppBlocObserver();
   GetItRegisterSingleton.instance.init();

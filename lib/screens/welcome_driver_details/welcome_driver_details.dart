@@ -12,10 +12,10 @@ class WelcomeDriverDetails extends StatelessWidget {
     return BlocProvider.value(
       value: cubit,
       child: Scaffold(
-         persistentFooterAlignment: AlignmentDirectional.center,
-        appBar: welcomeDriverDetailsAppBar(),
+        persistentFooterAlignment: AlignmentDirectional.center,
+        appBar: welcomeDriverDetailsAppBar(context),
         body: const WelcomeDriverDetailsBody(),
-        persistentFooterButtons:   const [WelcomeDriverDetailsButton()],
+        persistentFooterButtons: const [WelcomeDriverDetailsButton()],
       ),
     );
   }

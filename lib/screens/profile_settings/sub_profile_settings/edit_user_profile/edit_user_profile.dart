@@ -13,8 +13,8 @@ class EditUserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (create) => EditUserProfileCubit(
-        getIt(),
-        getIt(),getIt(),
+        get(),
+        get(),get(),
       ),
       child: Scaffold(
         appBar: _simpleAppBar(context),

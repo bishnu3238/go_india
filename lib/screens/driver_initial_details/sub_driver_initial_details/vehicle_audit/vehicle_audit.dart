@@ -13,10 +13,10 @@ class VehicleAudit extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (create) => VehicleAuditCubit(
-        getIt(),
-        getIt(),
-        getIt(),
-        getIt(),
+        get(),
+        get(),
+        get(),
+        get(),
       ),
       child: Scaffold(
         appBar: _simpleAppBar(context),

@@ -117,7 +117,7 @@ class _CityToDriveInput extends StatelessWidget {
           title: 'City you drive in',
           secondary: SecondaryTextField(
               icon: FontAwesomeIcons.city,
-              onIconTap: () => getIt<CityRepository>().fetchCities(),
+              onIconTap: () => get<CityRepository>().fetchCities(),
               hint: state.city.isValid ? state.city.value : 'Select City',
               onTap: () async {
                 Cities? city = await cubit.citySearch(context);

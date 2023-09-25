@@ -15,3 +15,15 @@ PopupMenuEntry<PopUpItem?> logoutMenu = const PopupMenuItem(
     ],
   ),
 );
+PopupMenuEntry<PopUpItem?> profileMenu = const PopupMenuItem(
+  value: PopUpItem.profile,
+  child: Row(
+    children: [
+      Padding(
+        padding: edgeInsets1505,
+        child: Icon(FontAwesomeIcons.user),
+      ),
+      Text("Profile"),
+    ],
+  ),
+);

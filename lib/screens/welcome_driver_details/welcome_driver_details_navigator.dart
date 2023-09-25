@@ -8,7 +8,7 @@ class WelcomeDriverRoute {
         path: Screen.welcomeDriverDetails.path,
         name: Screen.welcomeDriverDetails.cName,
         builder: (ctx, state) => WelcomeDriverDetails(
-          cubit: getIt<WelcomeDriverDetailsCubit>(),
+          cubit: get<WelcomeDriverDetailsCubit>(),
         ),
       );
 }

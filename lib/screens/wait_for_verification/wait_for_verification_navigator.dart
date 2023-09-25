@@ -2,6 +2,7 @@ import 'package:go_india/screens/profile_settings/export.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../routes/route_path.dart';
 import 'export.dart';
+import 'sub_screens/initial_test_page/initial_test_page_navigator.dart';
 
 class WaitForVerificationRoute {
   static GoRoute page() => GoRoute(
@@ -15,5 +16,6 @@ class WaitForVerificationRoute {
               // name: Screen.userProfile.toName,
               builder: (ctx, state) => const UserProfile(),
             ),
+            InitialTestPageRoute.page() ,
           ]);
 }

@@ -1,6 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:go_india/data/repository/driver_repository.dart';
 import 'package:go_india/data/repository/driver_details_repository.dart';
+import 'package:go_india/data/repository/master_repository.dart';
+import 'package:go_india/domain/repository/master_repository.dart';
 import 'package:go_india/screens/home/export.dart';
 import '../../domain/store/store.dart';
 import '../../screens/splash/export.dart';
@@ -18,76 +20,80 @@ class GetItRegisterSingleton {
 
   void init() async {
     // Packages
-    getIt.registerLazySingleton<Connectivity>(() => Connectivity());
+    get.registerLazySingleton<Connectivity>(() => Connectivity());
 
     // Internet
-    getIt.registerLazySingleton<InternetConnectivityCubit>(
-        () => InternetConnectivityCubit(connectivity: getIt()));
+    get.registerLazySingleton<InternetConnectivityCubit>(
+        () => InternetConnectivityCubit(connectivity: get()));
 
     // AppNavigator
-    getIt.registerLazySingleton(() => AppNavigator());
+    get.registerLazySingleton(() => AppNavigator());
 
     // Network service
-    getIt.registerLazySingleton<NetworkService>(() => NetworkService());
+    get.registerLazySingleton<NetworkService>(() => NetworkService());
 
     // Notifier
-    getIt.registerLazySingleton<Notifier>(() => Notifier());
+    get.registerLazySingleton<Notifier>(() => Notifier());
 
     // Stores
-    getIt.registerLazySingleton<CityStore>(() => CityStore());
-    getIt.registerLazySingleton<ThemeStore>(() => ThemeStore());
-    getIt.registerLazySingleton<DriverStore>(() => DriverStore());
-    getIt.registerLazySingleton<VehicleTypeStore>(() => VehicleTypeStore());
-    getIt.registerLazySingleton<DriverVehicleStore>(() => DriverVehicleStore());
+    get.registerLazySingleton<CityStore>(() => CityStore());
+    get.registerLazySingleton<ThemeStore>(() => ThemeStore());
+    get.registerLazySingleton<DriverStore>(() => DriverStore());
+    get.registerLazySingleton<VehicleTypeStore>(() => VehicleTypeStore());
+    get.registerLazySingleton<DriverVehicleStore>(() => DriverVehicleStore());
 
     // Repository
-    getIt.registerSingleton<CityRepository>(
-        GoCityRepository(getIt(), getIt())..fetchCities());
-    getIt.registerLazySingleton<DriverRepository>(
-        () => GoDriverRepository(getIt(), getIt(), getIt()));
-    getIt.registerLazySingleton<DriverDetailsRepository>(
-      () => GoDriverDetailsRepository(getIt(),getIt(), getIt()),
+    get.registerSingleton<CityRepository>(
+        GoCityRepository(get(), get())..fetchCities());
+    get.registerLazySingleton<DriverRepository>(
+        () => GoDriverRepository(get(), get(), get()));
+    get.registerLazySingleton<DriverDetailsRepository>(
+      () => GoDriverDetailsRepository(get(), get(), get()),
+    );
+    get.registerLazySingleton<MasterRepository>(
+      () => GoIndiaMasterRepository(get())
+
     );
 
     // [Authentication]
     //
     // auth repositories [LogIn] [Signup] [reset instruction]
     // getIt.registerSingleton<UserStore>(UserStore());
-    getIt.registerSingleton<AuthRepository>(
+    get.registerSingleton<AuthRepository>(
       UserAuthRepository(
-        driverStore: getIt<DriverStore>(),
-        networkService: getIt<NetworkService>(),
+        driverStore: get<DriverStore>(),
+        networkService: get<NetworkService>(),
       )..driver.first,
     );
 
     // logic
-    getIt.registerSingleton<ApplicationBloc>(
-       ApplicationBloc(
-        authRepository: getIt(),
-        driverRepository: getIt(),
-        driverDetailsRepository: getIt(),
+    get.registerSingleton<ApplicationBloc>(
+      ApplicationBloc(
+        authRepository: get(),
+        driverRepository: get(),
+        driverDetailsRepository: get(),
       ),
     );
 
     // Pages
     // Splash
-    getIt.registerLazySingleton<SplashCubit>(() => SplashCubit()..initial());
+    get.registerLazySingleton<SplashCubit>(() => SplashCubit()..initial());
 
     //welcome driver details
-    getIt.registerLazySingleton<WelcomeDriverDetailsCubit>(
+    get.registerLazySingleton<WelcomeDriverDetailsCubit>(
         () => WelcomeDriverDetailsCubit(
-              getIt(),
-              getIt(),
-              getIt(),
-              getIt(),
+              get(),
+              get(),
+              get(),
+              get(),
             ));
     // welcome
-    getIt.registerLazySingleton<WelcomeCubit>(() => WelcomeCubit(getIt()));
+    get.registerLazySingleton<WelcomeCubit>(() => WelcomeCubit(get()));
 
     // Home
-    getIt.registerLazySingleton<HomeBloc>(() => HomeBloc(getIt(),));
-
-
+    get.registerLazySingleton<HomeBloc>(() => HomeBloc(
+          get(),
+        ));
 
     // App router
     // getIt.registerLazySingleton<AppRouter>(() => AppRouter(getIt(), getIt()));

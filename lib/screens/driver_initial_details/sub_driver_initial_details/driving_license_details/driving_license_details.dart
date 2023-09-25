@@ -12,7 +12,7 @@ class DrivingLicense extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => DrivingLicenseCubit(getIt(), getIt(),getIt(), getIt()),
+      create: (create) => DrivingLicenseCubit(get(), get(),get(), get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const DrivingLicenseBody(),
@@ -46,7 +46,7 @@ class DrivingLicenseButton extends StatelessWidget {
             children: [
               ElButton(
                 text: 'Done',
-                style: gideonRoman(color: kGolden),
+                style: gideonRoman(color: kGolden, weight: fw9),
                 showLoading: state.status.isInProgress,
                 onTap: state.isValid ? () => cubit.done(context) : null,
               ),

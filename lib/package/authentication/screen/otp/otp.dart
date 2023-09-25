@@ -11,12 +11,16 @@ class OtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       appBar: const SimpleAppBar(title: AppBarLogo(), centerTitle: false),
       body: SingleChildScrollView(
         child: BlocProvider(
-          create: (context) => OtpCubit(getIt(),  getIt(),getIt(), params),
-          child: const OtpBody(),
+          create: (context) => OtpCubit(get(), get(), get(), params),
+          child: Builder(
+            builder: (context) => OtpBody(
+              cubit: context.read<OtpCubit>(),
+            ),
+          ),
         ),
       ),
     );

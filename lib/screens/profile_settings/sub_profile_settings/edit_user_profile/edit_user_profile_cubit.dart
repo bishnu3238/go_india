@@ -22,10 +22,10 @@ class EditUserProfileCubit extends Cubit<EditUserProfileState> {
         (l) => notifier.errorMessage(context: context, message: l.message),
         (r) {
           var driver = state.driver.copyWith(image: r[0]!.path);
-          getIt<DriverStore>().setDriver(driver);
+          get<DriverStore>().setDriver(driver);
           emit(state.copyWith(
             driver: driver,
-            isValid: state.driver != getIt<DriverStore>().state,
+            isValid: state.driver != get<DriverStore>().state,
           ));
         },
       ),
@@ -34,19 +34,19 @@ class EditUserProfileCubit extends Cubit<EditUserProfileState> {
 
   void changeName(String value) => emit(state.copyWith(
         driver: state.driver.copyWith(name: value),
-        isValid: state.driver != getIt<DriverStore>().state,
+        isValid: state.driver != get<DriverStore>().state,
       ));
   void changeMobile(String value) => emit(state.copyWith(
         driver: state.driver.copyWith(mobile: value),
-        isValid: state.driver != getIt<DriverStore>().state,
+        isValid: state.driver != get<DriverStore>().state,
       ));
   void changeEmail(String value) => emit(state.copyWith(
         driver: state.driver.copyWith(email: value),
-        isValid: state.driver != getIt<DriverStore>().state,
+        isValid: state.driver != get<DriverStore>().state,
       ));
   void changeGender(Gender? value) => emit(state.copyWith(
         driver: state.driver.copyWith(gender: value),
-        isValid: state.driver != getIt<DriverStore>().state,
+        isValid: state.driver != get<DriverStore>().state,
       ));
 
   Future<void> update(BuildContext context) async {

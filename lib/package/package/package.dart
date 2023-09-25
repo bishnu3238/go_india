@@ -1,4 +1,5 @@
 export '../common/common.dart';
+export '../loading/loading.dart';
 export '../searching/searching.dart';
 export '../navigator/app_navigator.dart';
 export '../network/network_failure.dart';

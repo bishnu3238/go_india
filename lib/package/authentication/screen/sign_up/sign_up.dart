@@ -16,7 +16,7 @@ class SignUpPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(8),
         child: BlocProvider(
-          create: (_) => SignUpCubit(getIt(),   getIt()),
+          create: (_) => SignUpCubit(get(),   get()),
           child: Builder(builder: (context) {
             return const SignUpForm();
           }),

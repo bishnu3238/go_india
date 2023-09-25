@@ -13,7 +13,7 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (create) => UserProfileCubit(getIt()),
+      create: (create) => UserProfileCubit(get()),
       child: Scaffold(
         appBar: _simpleAppBar(context),
         body: const UserProfileBody(),

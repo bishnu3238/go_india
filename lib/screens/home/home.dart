@@ -19,7 +19,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider.value(
-      value: getIt<HomeBloc>(),
+      value: get<HomeBloc>(),
       child: Scaffold(
         key: key,
         drawer: const AppDrawer(),

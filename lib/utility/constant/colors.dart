@@ -50,8 +50,8 @@ const primaryGradient = LinearGradient(
   end: Alignment.bottomRight,
 );
 const cardGradient = LinearGradient(
-  colors: [Color(0xFF1e3c72), Color(0xFF2a5298)],
-  stops: [0.0, 1.0],
+  colors: [kViolet, kIndigo, kTitleColor],
+  stops: [0.0, 0.5,1.0],
   begin: Alignment.topLeft,
   end: Alignment.bottomRight,
 );

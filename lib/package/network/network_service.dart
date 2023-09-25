@@ -14,7 +14,10 @@ class NetworkService {
   Future<Either<NetworkFailure, T>> get<T>(String url) async {
     try {
       var uri = Uri.parse(url);
+      uri.log();
       var response = await http.get(uri);
+      '${response.statusCode}::${response.body}'.log();
+
       final failure = _handleStatusCode(response.statusCode);
       if (failure != null) return left(failure);
 
@@ -51,7 +54,7 @@ class NetworkService {
       uri.log();
       body.log();
       var response = await http.post(uri, body: body);
-      log(response.body);
+      '${response.statusCode}::${response.body}'.log();
 
       final failure = _handleStatusCode(response.statusCode);
       if (failure != null) return left(failure);
@@ -102,11 +105,10 @@ class NetworkService {
       String uri, Map<String, String> data, Map<String, dynamic> images) async {
     var url = Uri.parse(uri);
 
-
     var request = http.MultipartRequest('POST', url);
     request.fields.addAll(data);
     late Future<http.MultipartFile> image;
-'${request.url} $data $images'.log();
+    '${request.url} $data $images'.log();
     for (int i = 0; i < images.length; i++) {
       var key = images.keys.toList();
       var value = images.values.toList();

@@ -18,7 +18,7 @@ class SupportButton extends StatelessWidget {
           children: [
             ElButton(
               text: 'Done',
-              style: gideonRoman(color: kGolden),
+              style: gideonRoman(color: kGolden, weight: fw9),
               showLoading: state.status.isInProgress,
               onTap: null,
             ),

@@ -27,7 +27,8 @@ class WelcomeBody extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             InkWell(
-              onTap: () => context.go(addVehiclePath),
+              onTap: () => Screen.addVehicle.go(context) ,
+                  // context.go(addVehiclePath),
               child: HeadLine(
                 headline: 'Start Application',
                 style: gideonRoman(
@@ -39,7 +40,7 @@ class WelcomeBody extends StatelessWidget {
             ),
             const Divider(),
             InkWell(
-              onTap: () => context.push(Screen.profileSettings.path),
+              onTap: () => Screen.profileSettings.go(context),
               child: HeadLine(
                 headline: 'Profile Settings',
                 style: gideonRoman(

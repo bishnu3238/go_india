@@ -1,11 +1,12 @@
  import 'package:flutter/material.dart';
 import 'package:go_india/package/package/package.dart';
+import 'package:go_india/routes/route_path.dart';
 import 'package:go_india/utility/constant/border_radius.dart';
 import 'package:go_india/utility/constant/constant.dart';
 import 'package:go_india/utility/global/global.dart';
 
 enum PopUpItem {
-  logout,
+  logout, profile,
 }
 
 Future popUp(
@@ -29,7 +30,9 @@ Future popUp(
 manuResult(BuildContext context, PopUpItem? value) {
   switch (value) {
     case PopUpItem.logout:
-      getIt<AuthRepository>().logOut();
+      get<AuthRepository>().logOut();
+    case PopUpItem.profile:
+      Screen.userProfile.go(context);
     default:
       null;
   }

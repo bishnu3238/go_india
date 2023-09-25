@@ -17,7 +17,7 @@ class Registration extends StatelessWidget {
         body: Padding(
             padding: edgeInsets10,
             child: BlocProvider(
-              create: (ctx) => RegisterCubit(getIt<UserAuthRepository>(), getIt<Notifier>()),
+              create: (ctx) => RegisterCubit(get<UserAuthRepository>(), get<Notifier>()),
               child: const RegistrationForm(),
             )),
       ),

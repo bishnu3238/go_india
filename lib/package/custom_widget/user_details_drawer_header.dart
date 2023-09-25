@@ -13,7 +13,7 @@ class UserDetailsDrawerHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<DriverStore, Driver>(
-      bloc: getIt.get<DriverStore>(),
+      bloc: get.get<DriverStore>(),
       listener: (ctx, state) {},
       builder: (context, user) {
         bool isNetwork = user.image.contains('http');

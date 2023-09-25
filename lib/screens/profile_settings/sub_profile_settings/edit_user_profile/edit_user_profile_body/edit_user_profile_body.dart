@@ -125,35 +125,11 @@ class _ProfileImage extends StatelessWidget {
     return BlocBuilder<EditUserProfileCubit, EditUserProfileState>(
         builder: (context, state) {
       var cubit = context.read<EditUserProfileCubit>();
-      return Container(
-        width: getScreenWidth(kLayoutWidth),
-        decoration: BoxDecoration(
-          borderRadius: radius10,
-          color: theme.colorScheme.inversePrimary,
-        ),
-        child: InkWell(
-          onTap: () => cubit.pickProfileImage(context),
-          child: Stack(
-            children: [
-              Padding(
-                padding: edgeInsets5,
-                child: Center(
-                  child: ImageShower(
-                    borderRadius: 8,
-                    height: getScreenHeight(kLayoutHeight * 1 / 4),
-                    imageUrl: state.driver.image,
-                    imgType: state.imgType,
-                  ),
-                ),
-              ),
-              const Positioned(
-                right: 10,
-                top: 10,
-                child: FaIcon(FontAwesomeIcons.penToSquare),
-              )
-            ],
-          ),
-        ),
+      return ProfileImageCircle(
+        showEdit: true,
+        image: state.driver.image,
+        imgType: state.driver.imgType,
+        onTap: () => cubit.pickProfileImage(context),
       );
     });
   }

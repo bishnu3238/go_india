@@ -19,7 +19,7 @@ class EditUserProfileButton extends StatelessWidget {
           children: [
             ElButton(
               text: 'Update',
-              style: gideonRoman(color: kGolden),
+              style: gideonRoman(color: kGolden, weight: fw9),
               showLoading: state.status.isInProgress,
               onTap: state.isValid ? ()=> cubit.update(context): null,
             ),

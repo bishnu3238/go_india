@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:go_router/go_router.dart';
-import 'package:intl_phone_field/phone_number.dart';
 import '../../../../../routes/route_path.dart';
 import '../../../../../utility/utility/utility.dart';
 import '../../../../package/package.dart';
@@ -16,9 +15,11 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<LoginCubit>().hintProvider();
+
     return BlocListener<LoginCubit, LoginState>(
       listener: LoginCubit.listener,
-       child: _ContainerBox(
+      child: _ContainerBox(
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -31,9 +32,7 @@ class LoginForm extends StatelessWidget {
               const SizedBox(height: 30),
               _LoginButton(),
               // const SizedBox(height: 50),
-              const Visibility(
-                  visible: false,
-                  child: _GoToSignUp()),
+              const Visibility(visible: false, child: _GoToSignUp()),
             ],
           ),
         ),
@@ -70,7 +69,6 @@ class _GoToSignUp extends StatelessWidget {
                 weight: fw6),
             textAlign: TextAlign.end,
           ),
-
         ],
       ),
     );
@@ -119,14 +117,20 @@ class _ContainerBox extends StatelessWidget {
 class _PhoneNumberInput extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var cubit = context.read<LoginCubit>();
     return BlocBuilder<LoginCubit, LoginState>(
-      buildWhen: (previous, current) =>
-          previous.phoneNumber != current.phoneNumber,
+      // buildWhen: (previous, current) =>
+      //     previous.phoneNumber != current.phoneNumber,
       builder: (context, state) {
         return PhoneInputField(
-          hint: 'e.g: xxxxxxxxxx',
-          onNumberChange: (PhoneNumber number) =>
-              context.read<LoginCubit>().numberChanged(number.number),
+          hint: state.phoneNumber.value.isEmpty
+              ? 'e.g: xxxxxxxxxx'
+              : state.phoneNumber.value,
+          phone: state.phoneNumber.isValid
+              ? TextEditingController(text: state.phoneNumber.value)
+              : null,
+          initialNumber: state.phoneNumber.value,
+          onNumberChange: (number) => cubit.numberChanged(number.number),
           error: state.phoneNumber.displayError != null
               ? 'invalid phone number'
               : null,
@@ -141,7 +145,6 @@ class _PhoneNumberInput extends StatelessWidget {
               ? 'invalid phone number'
               : null,
           onCountryChange: (value) {},
-
         );
       },
     );

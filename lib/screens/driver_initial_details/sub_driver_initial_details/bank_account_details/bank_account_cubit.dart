@@ -69,7 +69,7 @@ class BankAccountDetailsCubit extends Cubit<BankAccountState> {
     var details = driverStore.state.copyWith(driverDetails: info);
     driverStore.setDriver(details);
     var data = bankInfo.toMap();
-    data.putIfAbsent('driver_id', () => getIt<DriverStore>().state.id);
+    data.putIfAbsent('driver_id', () => get<DriverStore>().state.id);
     data.log();
     var images = {'passbook_photo': state.passbookImage[0]!.path};
 
